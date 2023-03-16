@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form id="form">
+       <input id="user" placeholder="username" type="text" name="username">
+       <input id="pass" placeholder="password" type="text" name="password">
+       <button type="submit">submit</button>
+
+    </form>
+    <script>
+        document.getElementById("form").addEventListener("submit",(e)=>{e.preventDefault()
+        cosole.log(document.getElementById("user").value)
+        cosole.log(document.getElementById("pass").value)
+        fetch("http://localhost:3000/signin",{
+            method:"POST",
+            headers:{"Content-Type":"application/json"},
+            body:JSON.stringify({
+                username:document.getElementById("user").value,
+                password:document.getElementById("pass").value,
+            })
+        }) 
+        })</script>
+</body>
+</html>
